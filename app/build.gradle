@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion project.ext.myCompileSdkVersion
+    buildToolsVersion project.ext.myBuildToolsVersion
     defaultConfig {
-        applicationId "com.flavor.test"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        applicationId project.ext.myApplicationId
+        minSdkVersion project.ext.myMinSdkVersion
+        targetSdkVersion project.ext.myTargetSdkVersion
+        versionCode project.ext.myVersionCode
+        versionName project.ext.myVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -31,12 +32,17 @@ android {
             // This property is optional if you are using only one dimension.
             dimension "version"
             applicationIdSuffix ".demo"
-            versionNameSuffix "-demo"
+            versionNameSuffix "-demonstrate"
+            buildConfigField("String","URL_BASE",'"https://dev.fullflavor.com.br"')
+
         }
+
         fullflavor {
             dimension "version"
             applicationIdSuffix ".full"
-            versionNameSuffix "-full"
+            versionNameSuffix "-fuller"
+            buildConfigField("String","URL_BASE",'"https://qa.fullflavor.com.br"')
+
         }
     }
 
